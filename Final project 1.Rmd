@@ -1,0 +1,21 @@
+---
+title: "Developing data products project 1"
+author: "David Santamaría"
+date: "9/16/2020"
+output: html_document
+---
+
+```{r graph,echo=FALSE}
+
+library(leaflet)
+MCIcon <- makeIcon(iconUrl = "https://logos-marcas.com/wp-content/uploads/2020/04/McDonalds-Logo.png",iconWidth = 31*215/230,iconHeight = 16 ,iconAnchorX = 21*215/230/2 ,iconAnchorY = 16)
+df <- data.frame(lat = c(4.658562, 4.646124, 4.635874,   4.639782, 4.653561, 4.658181, 4.614058, 4.613844, 4.601882, 4.607667),
+       lng = c(-74.107206,-74.100490,-74.078740,-74.065321, -74.062735, -74.056555,-74.069623,-74.070202, -74.073743,-74.185301))
+
+my_map <- leaflet() %>%
+          addTiles() %>% addMarkers(lat = df$lat,lng=df$lng,icon=MCIcon)
+
+my_map
+
+```
+
